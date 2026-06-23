@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="MonkeyCoffe.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Menú Monkey coffee </title>
+  <meta name="description" content="Mira nuestro menú de Monkey coffee.">
+
+  <!-- Open Graph (Vista previa en WhatsApp, Facebook, etc.) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Monkey coffee">
+  <meta property="og:description" content="Mira nuestro menú de Monkey coffee.">
+  <meta property="og:url" content="https://logoartcr.github.io/Monkey coffee/">
+  <meta property="og:image" content="https://logoartcr.github.io/Monkey coffee/MonkeyCoffe.png">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #f4f4f4;
+    }
+
+    #mi-catalogo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <iframe id="mi-catalogo" src=""></iframe>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const idProducto = (urlParams.get('id') || '').trim();
+
+    let urlFinal = "https://script.google.com/macros/s/AKfycby4fekL0c1F1j8DU2s6cS9BNzr-f871WJEe9R-aT9he1-PH1lQs5JyrBfOFLye1L_G0qQ/exec";
+
+    if (idProducto) {
+      const conector = urlFinal.includes('?') ? '&' : '?';
+      urlFinal += conector + "id=" + encodeURIComponent(idProducto);
+    }
+
+    document.getElementById('mi-catalogo').src = urlFinal;
+  </script>
+
+</body>
+</html>
